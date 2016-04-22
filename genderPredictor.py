@@ -50,7 +50,8 @@ class genderPredict(object):
 			'last_letter': name[-1:],
 			'last_two': name[-2:],
 			'last_three': name[-3:],
-			'last_vowel': (name[-1:] in 'AEIOUY')
+			'last_vowel': (name[-1:] in 'AEIOUY'),
+			'last_two_vowel': (name[-2:] in 'AEIOUY'),
 		}
 
 	def _loadNames(self):
@@ -59,6 +60,7 @@ class genderPredict(object):
 if __name__ == '__main__':
 	gp = genderPredict()
 	acc = gp.testAndTrain()
+	print acc
 	while True:
 		name = raw_input('Enter name to classify : ')
 		print '%s is classified as %s\n' % (name, gp.classify(name))
